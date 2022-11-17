@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AndroidPrHome</string>
+    <string name="hello_world">Hello World!!!</string>
+    <string name="mainActivity2">This is mainActivity2</string>
+    <string name="go_to_activity_2">Go to Activity 2</string>
+    <string name="send_text">Send text</string>
+    <string name="close_app">Close app</string>
+    <string name="go_to_previous_activity">Go to previous activity</string>
+    <string name="textview">TextView</string>
+    <string name="str_1">This text is from the first activity</string>
+    <string name="str_2">Hi from first activity</string>
+    <string name="HW2">HomeWork2</string>
+    <string name="no_data">no data: "MainActivity2"</string>
+    <string name="second_item">Second item clicked</string>
+    <string name="Hi_this_is_my_phone">Hi, this is my phone</string>
 </resources>

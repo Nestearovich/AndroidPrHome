@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AndroidPrHome</string>
+    <string name="info">Information</string>
+    <string name="pos_message">login completed</string>
+    <string name="btn_negative">Cancel</string>
+    <string name="btn_pos">OK</string>
+    <string name="errorName">invalid name</string>
+    <string name="errorPassword">invalid password</string>
+    <string name="accept">Accept</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_password">Enter your password</string>
 </resources>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidPrHome</string>
+    <string name="enter_your_login">Enter your login</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="accept">Accept</string>
+    <string name="textview">TextView</string>
 </resources>

@@ -10,12 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidprhome.User.ItemsUser
 import com.example.androidprhome.adapter.ItemsAdapter
-import com.example.androidprhome.model.ItemsModel
+
+
+
 
 
 class ItemsFragment : Fragment(),ItemsUser {
-    private lateinit var itemsAdapter: ItemsAdapter
 
+
+    private lateinit var itemsAdapter: ItemsAdapter
+    private val viewModel: ItemsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,72 +39,41 @@ class ItemsFragment : Fragment(),ItemsUser {
 
         recyclerView.adapter = itemsAdapter
 
-        val listItems = listOf<ItemsModel>(
-            ItemsModel(
-                R.drawable.iavengers,
-            "Avengers",
-            "First",
-                R.drawable.star
-            ),
-            ItemsModel(
-                R.drawable.iavengers,
-                "Avengers 2",
-                "Age Altron",
-                R.drawable.star
-            ),
-            ItemsModel(
-                R.drawable.iavengers,
-                "Avengers 3",
-                "Infinity War",
-                R.drawable.star
-            ),
-            ItemsModel(
-                R.drawable.iavengers,
-                "Avengers 4",
-                "End",
-                R.drawable.star
-            ),
-            ItemsModel(
-                R.drawable.spider,
-                "Spider-man",
-                "Homecoming",
-                R.drawable.star
-            ),
-            ItemsModel(
-                R.drawable.spider2,
-                "Spider-man 2",
-                "Far from home",
-                R.drawable.star
-            ),
-            ItemsModel(
-                R.drawable.spider,
-                "Spider-man 3",
-                "No way home",
-                R.drawable.star
-            ),
+        viewModel.getAbout()
 
-        )
-        itemsAdapter.submitList(listItems.toList())
+        viewModel.items.observe(viewLifecycleOwner) { listItems ->
+            itemsAdapter.submitList(listItems)
+
+        }
+        viewModel.msg.observe(viewLifecycleOwner) { msg ->
+            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+        }
+
+
+
+        viewModel.bundle.observe(viewLifecycleOwner){navBundle ->
+            val detailFragment = DetailsFragment()
+            val bundle = Bundle()
+            bundle.putString("name",navBundle.name)
+            bundle.putString("date",navBundle.about)
+            bundle.putInt("imageView",navBundle.image)
+            bundle.putInt("imageView2",navBundle.imageView2)
+            detailFragment.arguments =bundle
+
+            parentFragmentManager
+                .beginTransaction()
+                .add(R.id.activity_container,DetailsFragment())
+                .addToBackStack("Details")
+                .commit()
+        }
+
     }
 
     override fun onClick() {
-        Toast.makeText(context,"ImageView clicked",Toast.LENGTH_SHORT).show()
+        TODO("Not yet implemented")
     }
 
     override fun onElementSelected(name: String, about: String, imageView: Int, imageView2: Int) {
-        val detailFragment = DetailsFragment()
-        val bundle = Bundle()
-        bundle.putString("name",name)
-        bundle.putString("about",about)
-        bundle.putInt("imageView",imageView)
-        bundle.putInt("imageView",imageView2)
-        detailFragment.arguments = bundle
-
-
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.activity_container,DetailsFragment())
-            .addToBackStack("Details")
-            .commit()
+        TODO("Not yet implemented")
     }
-
 }

@@ -20,7 +20,7 @@ class ItemsFragment : Fragment(),ItemsUser {
 
     private lateinit var itemsAdapter: ItemsAdapter
 
-    private val viewModel: ItemsViewModel by viewModel()
+    private val viewModel : ItemsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

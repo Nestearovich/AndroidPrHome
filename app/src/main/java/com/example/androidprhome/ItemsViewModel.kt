@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.example.androidprhome.model.ItemsModel
 
 class ItemsViewModel: ViewModel() {
+
+
     private val _items = MutableLiveData<List<ItemsModel>>()
     val items: LiveData<List<ItemsModel>> = _items
 
@@ -66,17 +68,18 @@ class ItemsViewModel: ViewModel() {
     fun imageViewClicked() {
         _msg.value = "ImageView clicked"
 
-        fun elementClicked(name: String, about: String, imageView: Int, imageView2: Int) {
-            _bundle.value = NavigateWithBundle(
-                image = imageView,
-                name = name,
-                about = about,
-                imageView2 = imageView2
-            )
-
-
-        }
     }
+    fun elementClicked(name: String, about: String, imageView: Int, imageView2: Int) {
+        _bundle.value = NavigateWithBundle(
+            image = imageView,
+            name = name,
+            about = about,
+            imageView2 = imageView2
+        )
+
+
+    }
+
 }
 
 data class NavigateWithBundle(

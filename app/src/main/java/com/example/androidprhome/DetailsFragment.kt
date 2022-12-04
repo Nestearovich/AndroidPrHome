@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 
+const val KEY_NAME = "name"
+const val  KEY_ABOUT = "about"
+const val  KEY_IMAGE = "imageView"
+const val  KEY_IMAGE2 = "imageView"
 
 class DetailsFragment : Fragment() {
 
@@ -32,10 +36,10 @@ class DetailsFragment : Fragment() {
 
         val bundle = arguments
         bundle?.let{ safeBundle ->
-            val name = bundle.getString("name")
-            val about = bundle.getString("date")
-            val image = bundle.getInt("imageView")
-            val image2 = bundle.getInt("imageView2")
+            val name = bundle.getString(KEY_NAME)
+            val about = bundle.getString(KEY_ABOUT)
+            val image = bundle.getInt(KEY_IMAGE)
+            val image2 = bundle.getInt(KEY_IMAGE2)
 
 
             detailsName.text = name

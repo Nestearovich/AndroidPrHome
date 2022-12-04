@@ -19,6 +19,7 @@ class ItemsFragment : Fragment(),ItemsUser {
 
 
     private lateinit var itemsAdapter: ItemsAdapter
+
     private val viewModel: ItemsViewModel by viewModel()
 
     override fun onCreateView(
@@ -54,10 +55,10 @@ class ItemsFragment : Fragment(),ItemsUser {
         viewModel.bundle.observe(viewLifecycleOwner){navBundle ->
             val detailFragment = DetailsFragment()
             val bundle = Bundle()
-            bundle.putString("name",navBundle.name)
-            bundle.putString("date",navBundle.about)
-            bundle.putInt("imageView",navBundle.image)
-            bundle.putInt("imageView2",navBundle.imageView2)
+            bundle.putString(KEY_NAME,navBundle.name)
+            bundle.putString(KEY_ABOUT,navBundle.about)
+            bundle.putInt(KEY_IMAGE,navBundle.image)
+            bundle.putInt(KEY_IMAGE2,navBundle.imageView2)
             detailFragment.arguments =bundle
 
             parentFragmentManager
@@ -70,10 +71,11 @@ class ItemsFragment : Fragment(),ItemsUser {
     }
 
     override fun onClick() {
-        TODO("Not yet implemented")
+        viewModel.imageViewClicked()
     }
 
     override fun onElementSelected(name: String, about: String, imageView: Int, imageView2: Int) {
-        TODO("Not yet implemented")
+        viewModel.elementClicked(name,about,imageView,imageView2)
     }
 }
+

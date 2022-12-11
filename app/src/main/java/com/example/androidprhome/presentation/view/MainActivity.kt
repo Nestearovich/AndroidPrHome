@@ -1,9 +1,8 @@
-package com.example.androidprhome
+package com.example.androidprhome.presentation.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import com.example.androidprhome.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +11,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.activity_container,DisplayFragment())
+        fragmentTransaction.add(R.id.activity_container, LoginFragment())
         fragmentTransaction.commit()
 
     }

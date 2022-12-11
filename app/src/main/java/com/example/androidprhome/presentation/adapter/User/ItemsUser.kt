@@ -1,4 +1,4 @@
-package com.example.androidprhome.User
+package com.example.androidprhome.presentation.adapter.User
 
 interface ItemsUser {
     fun onClick()

@@ -1,23 +1,12 @@
-package com.example.androidprhome
+package com.example.androidprhome.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.androidprhome.R
+import com.example.androidprhome.domain.ItemsRepository
 import com.example.androidprhome.model.ItemsModel
 
-class ItemsViewModel: ViewModel() {
+class ItemsRepositoryImpl:ItemsRepository {
 
-
-    private val _items = MutableLiveData<List<ItemsModel>>()
-    val items: LiveData<List<ItemsModel>> = _items
-
-    private val _msg = MutableLiveData<String>()
-    val msg: LiveData<String> = _msg
-
-    private val _bundle = MutableLiveData<NavigateWithBundle>()
-    val bundle: LiveData<NavigateWithBundle> = _bundle
-
-    fun getAbout() {
+    override fun getAbout(): List<ItemsModel> {
         val listItems = listOf<ItemsModel>(
             ItemsModel(
                 R.drawable.iavengers,
@@ -62,30 +51,6 @@ class ItemsViewModel: ViewModel() {
                 R.drawable.star
             ),
         )
-        _items.value = listItems
+        return listItems
     }
-
-    fun imageViewClicked() {
-        _msg.value = "ImageView clicked"
-
-    }
-    fun elementClicked(name: String, about: String, imageView: Int, imageView2: Int) {
-        _bundle.value = NavigateWithBundle(
-            image = imageView,
-            name = name,
-            about = about,
-            imageView2 = imageView2
-        )
-
-
-    }
-
-
 }
-
-data class NavigateWithBundle(
-    val image: Int,
-    val name: String,
-    val about: String,
-    val imageView2: Int
-)

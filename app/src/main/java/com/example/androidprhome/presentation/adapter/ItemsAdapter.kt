@@ -1,10 +1,11 @@
-package com.example.androidprhome.adapter
+package com.example.androidprhome.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidprhome.R
-import com.example.androidprhome.User.ItemsUser
+import com.example.androidprhome.databinding.ItemsDetailBinding
+import com.example.androidprhome.presentation.adapter.User.ItemsUser
 import com.example.androidprhome.model.ItemsModel
 
 class ItemsAdapter(
@@ -20,8 +21,12 @@ class ItemsAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.items_detail,parent,false)
-        return ItemsViewHolder(view,itemsUser)
+        val viewBinding = ItemsDetailBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return ItemsViewHolder(viewBinding,itemsUser)
     }
 
     override fun onBindViewHolder(holder: ItemsViewHolder, position: Int) {

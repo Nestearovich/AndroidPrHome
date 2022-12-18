@@ -5,14 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import com.example.androidprhome.utils.BundleConstant.KEY_ABOUT
+import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE
+import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE2
+import com.example.androidprhome.utils.BundleConstant.KEY_NAME
 import com.example.androidprhome.databinding.FragmentDetailsBinding
 
-const val KEY_NAME = "name"
-const val KEY_ABOUT = "about"
-const val KEY_IMAGE = "imageView"
-const val KEY_IMAGE2 = "imageView"
+
 
 class DetailsFragment : Fragment() {
 

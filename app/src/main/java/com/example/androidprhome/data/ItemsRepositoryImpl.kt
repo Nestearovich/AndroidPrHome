@@ -3,8 +3,9 @@ package com.example.androidprhome.data
 import com.example.androidprhome.R
 import com.example.androidprhome.domain.ItemsRepository
 import com.example.androidprhome.model.ItemsModel
+import javax.inject.Inject
 
-class ItemsRepositoryImpl:ItemsRepository {
+class ItemsRepositoryImpl @Inject constructor() :ItemsRepository {
 
     override fun getAbout(): List<ItemsModel> {
         val listItems = listOf<ItemsModel>(

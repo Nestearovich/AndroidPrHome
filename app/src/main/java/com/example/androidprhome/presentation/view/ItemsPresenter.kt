@@ -1,8 +1,9 @@
 package com.example.androidprhome.presentation.view
 
 import com.example.androidprhome.domain.ItemsInteractor
+import javax.inject.Inject
 
-class ItemsPresenter(
+class ItemsPresenter @Inject constructor(
     private val itemsView: ItemsView,
     private val itemsInteractor: ItemsInteractor
 ) {

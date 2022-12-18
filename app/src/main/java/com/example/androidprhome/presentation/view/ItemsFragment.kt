@@ -5,10 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.androidprhome.utils.BundleConstant.KEY_ABOUT
+import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE
+import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE2
+import com.example.androidprhome.utils.BundleConstant.KEY_NAME
 import com.example.androidprhome.R
 import com.example.androidprhome.data.ItemsRepositoryImpl
 import com.example.androidprhome.databinding.FragmentItemsBinding
@@ -16,11 +17,10 @@ import com.example.androidprhome.domain.ItemsInteractor
 import com.example.androidprhome.model.ItemsModel
 import com.example.androidprhome.presentation.adapter.User.ItemsUser
 import com.example.androidprhome.presentation.adapter.ItemsAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
 
-
-
-
+@AndroidEntryPoint
 class ItemsFragment : Fragment(), ItemsUser,ItemsView {
 
 
@@ -70,7 +70,7 @@ class ItemsFragment : Fragment(), ItemsUser,ItemsView {
     }
 
     override fun imageViewClicked() {
-        TODO("Not yet implemented")
+
     }
 
 

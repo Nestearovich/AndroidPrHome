@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.androidprhome.R
 import com.example.androidprhome.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 private var _viewBinding: FragmentLoginBinding? = null
     private val viewBinding get() = _viewBinding!!

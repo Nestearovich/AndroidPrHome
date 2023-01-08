@@ -1,10 +1,16 @@
 package com.example.androidprhome.di
 
-import com.example.androidprhome.data.ItemsRepositoryImpl
-import com.example.androidprhome.domain.ItemsRepository
+import android.content.Context
+import com.example.androidprhome.data.authitems.AuthRepositoryImpl
+import com.example.androidprhome.data.authitems.ItemsRepositoryImpl
+import com.example.androidprhome.data.sharedprefences.SharedPreferencesHelper
+import com.example.androidprhome.domain.auth.AuthRepository
+import com.example.androidprhome.domain.items.ItemsRepository
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 
 
@@ -15,4 +21,22 @@ abstract class DataModule {
     abstract fun bindItemsRepository(
         itemsRepositoryImpl: ItemsRepositoryImpl
     ): ItemsRepository
+
+    @Binds
+    abstract fun bindAuthRepository(
+        authRepositoryImpl: AuthRepositoryImpl
+    ): AuthRepository
+
+    companion object{
+        private const val SP_KEY = "SP_KEY"
+
+        @Provides
+        fun provideSharedPrefences(
+            @ApplicationContext context: Context
+        ): SharedPreferencesHelper{
+            return SharedPreferencesHelper(
+                context.getSharedPreferences(SP_KEY, Context.MODE_PRIVATE)
+            )
+        }
+    }
 }

@@ -3,6 +3,7 @@ package com.example.androidprhome.presentation.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.androidprhome.R
+import com.example.androidprhome.presentation.auths.LoginFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 

@@ -9,4 +9,6 @@
     <string name="log_in">Log in</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="enter_your_login">Enter your login</string>
+    <string name="go_to_display">Go to display</string>
+    <string name="hello">Hello</string>
 </resources>

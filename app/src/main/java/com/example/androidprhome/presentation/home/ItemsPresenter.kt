@@ -1,12 +1,18 @@
-package com.example.androidprhome.presentation.view
+package com.example.androidprhome.presentation.home
 
-import com.example.androidprhome.domain.ItemsInteractor
+import com.example.androidprhome.domain.items.ItemsInteractor
 import javax.inject.Inject
 
 class ItemsPresenter @Inject constructor(
-    private val itemsView: ItemsView,
     private val itemsInteractor: ItemsInteractor
 ) {
+
+   private lateinit var itemsView: ItemsView
+
+
+    fun setView(itemsFragment: ItemsFragment){
+        itemsView = itemsFragment
+    }
     fun getAbout(){
         val listItems = itemsInteractor.getAbout()
         itemsView.dataReceived(listItems)
@@ -19,3 +25,10 @@ class ItemsPresenter @Inject constructor(
         itemsView.goToDetails(name, about, imageView, imageView2)
     }
 }
+
+data class NavigateWithBundle(
+    val image: Int,
+    val image2: Int,
+    val name: String,
+    val date: String
+)

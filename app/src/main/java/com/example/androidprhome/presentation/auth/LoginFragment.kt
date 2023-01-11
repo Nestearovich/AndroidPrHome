@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.androidprhome.R
 import com.example.androidprhome.databinding.FragmentLoginBinding
+import com.example.androidprhome.presentation.home.HomeFragment
+import com.example.androidprhome.presentation.home.ItemsFragment
 import com.example.androidprhome.presentation.view.DisplayFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,10 +33,17 @@ private var _viewBinding: FragmentLoginBinding? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewBinding.btnLogin.setOnClickListener{
+        viewModel.nav.observe(viewLifecycleOwner) {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.activity_container, DisplayFragment())
+                .replace(R.id.activity_container, HomeFragment())
                 .commit()
         }
+
+        viewBinding.btnLogin.setOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.activity_container, ItemsFragment())
+                .commit()
+        }
+        }
     }
-}

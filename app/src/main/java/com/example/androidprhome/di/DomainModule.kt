@@ -1,7 +1,7 @@
 package com.example.androidprhome.di
 
-import com.example.androidprhome.domain.ItemsInteractor
-import com.example.androidprhome.domain.ItemsRepository
+import com.example.androidprhome.domain.items.ItemsInteractor
+import com.example.androidprhome.domain.items.ItemsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

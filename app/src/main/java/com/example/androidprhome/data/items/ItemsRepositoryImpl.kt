@@ -1,13 +1,13 @@
 package com.example.androidprhome.data.items
 
 import com.example.androidprhome.R
-import com.example.androidprhome.domain.ItemsRepository
+import com.example.androidprhome.domain.items.ItemsRepository
 import com.example.androidprhome.model.ItemsModel
 import javax.inject.Inject
 
-class ItemsRepositoryImpl @Inject constructor() :ItemsRepository {
+class ItemsRepositoryImpl @Inject constructor() : ItemsRepository {
 
-    override fun getData(): List<ItemsModel> {
+    override suspend fun getData(): List<ItemsModel> {
         val listItems = listOf<ItemsModel>(
             ItemsModel(
                 R.drawable.iavengers,

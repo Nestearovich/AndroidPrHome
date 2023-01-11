@@ -1,11 +1,11 @@
-package com.example.androidprhome.domain
+package com.example.androidprhome.domain.items
 
 import com.example.androidprhome.model.ItemsModel
 import javax.inject.Inject
 
 class ItemsInteractor @Inject constructor(private val itemsRepository: ItemsRepository) {
 
-    fun getData(): List<ItemsModel>{
+    suspend fun getData(): List<ItemsModel>{
         return itemsRepository.getData()
     }
 }

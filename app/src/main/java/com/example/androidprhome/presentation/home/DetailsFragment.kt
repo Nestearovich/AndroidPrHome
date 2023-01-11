@@ -1,4 +1,4 @@
-package com.example.androidprhome.presentation.view
+package com.example.androidprhome.presentation.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,9 +10,10 @@ import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE
 import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE2
 import com.example.androidprhome.utils.BundleConstant.KEY_NAME
 import com.example.androidprhome.databinding.FragmentDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
-
+@AndroidEntryPoint
 class DetailsFragment : Fragment() {
 
     private var _viewBinding: FragmentDetailsBinding? = null

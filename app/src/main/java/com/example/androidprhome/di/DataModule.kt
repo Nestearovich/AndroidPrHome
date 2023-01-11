@@ -1,6 +1,6 @@
 package com.example.androidprhome.di
 
-import com.example.androidprhome.data.ItemsRepositoryImpl
+import com.example.androidprhome.data.items.ItemsRepositoryImpl
 import com.example.androidprhome.domain.ItemsRepository
 import dagger.Binds
 import dagger.Module

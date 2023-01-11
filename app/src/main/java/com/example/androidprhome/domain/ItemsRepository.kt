@@ -5,5 +5,5 @@ import com.example.androidprhome.model.ItemsModel
 interface ItemsRepository {
 
 
-    fun getAbout(): List<ItemsModel>
+    fun getData(): List<ItemsModel>
 }

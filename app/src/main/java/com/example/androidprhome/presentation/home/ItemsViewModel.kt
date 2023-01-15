@@ -23,6 +23,9 @@ class ItemsViewModel @Inject constructor(
     private val _msg = MutableLiveData<Int>()
     val msg: LiveData<Int> = _msg
 
+    private val _nav = MutableLiveData<Int>()
+    val nav: LiveData<Int> = _nav
+
     private val _bundle = MutableLiveData<NavigateWithBundle?>()
     val bundle: LiveData<NavigateWithBundle?> = _bundle
 
@@ -47,7 +50,8 @@ class ItemsViewModel @Inject constructor(
             name = name,
             about = about,
             image = imageView,
-            image2 = imageView2
+            image2 = imageView2,
+            destination = R.id.action_itemsFragment_to_detailsFragment
         )
     }
 
@@ -61,4 +65,5 @@ data class NavigateWithBundle(
     val about: String,
     val image: Int,
     val image2: Int,
+    val destination: Int
 )

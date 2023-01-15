@@ -16,9 +16,10 @@ import com.example.androidprhome.databinding.FragmentItemsBinding
 import com.example.androidprhome.model.ItemsModel
 import com.example.androidprhome.presentation.adapter.User.ItemsUser
 import com.example.androidprhome.presentation.adapter.ItemsAdapter
+import com.example.androidprhome.utils.NavHelper.navigateWithBundle
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val NAVIGATE = "Details"
+
 
 @AndroidEntryPoint
 class ItemsFragment : Fragment(), ItemsUser {
@@ -68,11 +69,12 @@ class ItemsFragment : Fragment(), ItemsUser {
                 bundle.putInt(KEY_IMAGE2, navBundle.image2)
                 detailFragment.arguments = bundle
 
-                parentFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.activity_container, detailFragment)
-                    .addToBackStack(NAVIGATE)
-                    .commit()
+
+                navigateWithBundle(
+                    R.id.action_itemsFragment_to_detailsFragment,
+                    bundle
+                )
+
                 viewModel.userNavigated()
             }
         }

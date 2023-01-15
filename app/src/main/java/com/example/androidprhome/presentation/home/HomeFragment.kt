@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.androidprhome.R
 import com.example.androidprhome.databinding.FragmentHomeBinding
+import com.example.androidprhome.utils.NavHelper.replaceGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,11 +38,16 @@ class HomeFragment : Fragment() {
             viewBinding.tvUserCreds.text = "${it.userName}\n${it.userPassword}"
         }
 
-        viewBinding.btnGoToOnboarding.setOnClickListener {
+        viewBinding.btnGotoDisplay.setOnClickListener {
             parentFragmentManager
                 .beginTransaction()
                 .replace(R.id.activity_container, ItemsFragment())
                 .commit()
+        }
+        viewModel.nav.observe(viewLifecycleOwner){
+            if (it != null) {
+                replaceGraph(it)
+            }
         }
 
     }

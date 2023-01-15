@@ -11,13 +11,14 @@ import com.example.androidprhome.databinding.FragmentLoginBinding
 import com.example.androidprhome.presentation.home.HomeFragment
 import com.example.androidprhome.presentation.home.ItemsFragment
 import com.example.androidprhome.presentation.view.DisplayFragment
+import com.example.androidprhome.utils.NavHelper.navigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
 
 
-private var _viewBinding: FragmentLoginBinding? = null
+    private var _viewBinding: FragmentLoginBinding? = null
     private val viewBinding get() = _viewBinding!!
 
     private val viewModel: LoginViewModel by viewModels()
@@ -34,16 +35,17 @@ private var _viewBinding: FragmentLoginBinding? = null
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.nav.observe(viewLifecycleOwner) {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.activity_container, HomeFragment())
-                .commit()
-        }
+            if (it != null) {
+                navigate(R.id.action_loginFragment2_to_homeFragment)
+                viewModel.userNavigated()
+            }
 
-        viewBinding.btnLogin.setOnClickListener {
-            parentFragmentManager
-                .beginTransaction()
-                .replace(R.id.activity_container, ItemsFragment())
-                .commit()
-        }
+            viewBinding.btnLogin.setOnClickListener {
+                parentFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.activity_container, ItemsFragment())
+                    .commit()
+            }
         }
     }
+}

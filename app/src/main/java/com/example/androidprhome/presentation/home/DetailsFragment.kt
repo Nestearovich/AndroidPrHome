@@ -5,16 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.androidprhome.utils.BundleConstant.KEY_ABOUT
 import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE
 import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE2
 import com.example.androidprhome.utils.BundleConstant.KEY_NAME
 import com.example.androidprhome.databinding.FragmentDetailsBinding
+import com.example.androidprhome.utils.NavHelper.replaceGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
+
+    private val viewModel:DetailsViewModel by viewModels()
 
     private var _viewBinding: FragmentDetailsBinding? = null
     private val viewBinding get() = _viewBinding!!
@@ -41,11 +45,19 @@ class DetailsFragment : Fragment() {
             val image = bundle.getInt(KEY_IMAGE)
             val image2 = bundle.getInt(KEY_IMAGE2)
 
-
             viewBinding.text1.text = name
             viewBinding.text2.text = about
             viewBinding.imageView.setBackgroundResource(image)
             viewBinding.imageView.setBackgroundResource(image2)
+        }
+
+        viewBinding.btnLogout.setOnClickListener{
+            viewModel.logoutUser()
+        }
+        viewModel.nav.observe(viewLifecycleOwner){
+            if (it != null) {
+                replaceGraph(it)
+            }
         }
     }
 }

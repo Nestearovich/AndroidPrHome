@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_goToOnboarding"
+        android:id="@+id/btnGotoDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to items"

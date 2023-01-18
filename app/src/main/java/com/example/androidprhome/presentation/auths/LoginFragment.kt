@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.androidprhome.R
 import com.example.androidprhome.databinding.FragmentLoginBinding
+import com.example.androidprhome.utils.NavHelper.navigateWithDeletedBackStack
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -41,9 +42,7 @@ private var _viewBinding: FragmentLoginBinding? = null
         }
     }
 
-    override fun userLoggedIn() {
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.activity_container, DisplayFragment())
-            .commit()
+    override fun userLoggedIn(destination: Int, removeFragment: Int) {
+        navigateWithDeletedBackStack(destination, removeFragment)
     }
 }

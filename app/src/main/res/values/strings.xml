@@ -11,4 +11,5 @@
     <string name="enter_your_login">Enter your login</string>
     <string name="go_to_display">Go to display</string>
     <string name="hello">Hello</string>
+    <string name="click">click</string>
 </resources>

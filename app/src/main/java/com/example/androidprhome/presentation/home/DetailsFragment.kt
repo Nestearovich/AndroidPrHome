@@ -12,6 +12,7 @@ import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE2
 import com.example.androidprhome.utils.BundleConstant.KEY_NAME
 import com.example.androidprhome.databinding.FragmentDetailsBinding
 import com.example.androidprhome.presentation.auths.LoginFragment
+import com.example.androidprhome.utils.NavHelper.replaceGraph
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -50,11 +51,6 @@ class DetailsFragment : Fragment(), DetailsView {
                 safeBundle.getInt(KEY_IMAGE2))
 
 
-//            val name = bundle.getString(KEY_NAME)
-//            val about = bundle.getString(KEY_ABOUT)
-//            val image = bundle.getInt(KEY_IMAGE)
-//            val image2 = bundle.getInt(KEY_IMAGE2)
-
 
         }
         viewBinding.btnLogout.setOnClickListener{
@@ -62,13 +58,11 @@ class DetailsFragment : Fragment(), DetailsView {
         }
     }
 
-    override fun userLoggedOut() {
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.activity_container, LoginFragment())
-            .commit()
+    override fun userLoggedOut(destination: Int) {
+        replaceGraph(destination)
     }
 
-    override fun disolayItemData(name: String, about: String, imageView: Int) {
+    override fun displayItemData(name: String, about: String, imageView: Int) {
         viewBinding.text1.text = name
         viewBinding.text2.text = about
         viewBinding.imageView.setBackgroundResource(imageView)

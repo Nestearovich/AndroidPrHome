@@ -1,5 +1,6 @@
 package com.example.androidprhome.presentation.auths
 
+import com.example.androidprhome.R
 import javax.inject.Inject
 
 class DisplayPresenter @Inject constructor() {
@@ -10,6 +11,6 @@ class DisplayPresenter @Inject constructor() {
     }
 
     fun goToItemsFragment(){
-        displayView.goToItemsFragment()
+        displayView.goToItemsFragment(R.id.action_displayFragment_to_itemsFragment)
     }
 }

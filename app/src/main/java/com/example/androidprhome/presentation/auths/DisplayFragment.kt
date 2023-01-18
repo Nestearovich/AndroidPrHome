@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.androidprhome.R
 import com.example.androidprhome.databinding.FragmentDisplayBinding
 import com.example.androidprhome.presentation.home.ItemsFragment
-import com.example.androidprhome.utils.Navigation
+import com.example.androidprhome.utils.NavHelper.navigate
 
 
 class DisplayFragment : Fragment(), DisplayView {
@@ -36,8 +35,8 @@ class DisplayFragment : Fragment(), DisplayView {
         }
     }
 
-    override fun goToItemsFragment() {
-        Navigation.fmReplace(parentFragmentManager, ItemsFragment(), false)
+    override fun goToItemsFragment(destination: Int) {
+        navigate(destination)
     }
 
 }

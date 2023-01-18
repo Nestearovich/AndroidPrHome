@@ -1,5 +1,5 @@
 package com.example.androidprhome.presentation.auths
 
 interface DisplayView {
-    fun goToItemsFragment()
+    fun goToItemsFragment(destination: Int)
 }

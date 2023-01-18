@@ -7,5 +7,5 @@ interface ItemsView {
 
     fun imageViewClicked(msg:Int)
 
-    fun itemClicked(navigateWithBundle: NavigateWithBundle)
+    fun itemClicked(navigateWithBundle: NavigateWithBundle,destination: Int)
 }

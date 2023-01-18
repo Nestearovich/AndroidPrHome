@@ -10,14 +10,11 @@ import com.example.androidprhome.utils.BundleConstant.KEY_ABOUT
 import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE
 import com.example.androidprhome.utils.BundleConstant.KEY_IMAGE2
 import com.example.androidprhome.utils.BundleConstant.KEY_NAME
-import com.example.androidprhome.R
-import com.example.androidprhome.data.authitems.ItemsRepositoryImpl
 import com.example.androidprhome.databinding.FragmentItemsBinding
-import com.example.androidprhome.domain.items.ItemsInteractor
 import com.example.androidprhome.model.ItemsModel
 import com.example.androidprhome.presentation.adapter.User.ItemsUser
 import com.example.androidprhome.presentation.adapter.ItemsAdapter
-import com.example.androidprhome.utils.Navigation
+import com.example.androidprhome.utils.NavHelper.navigateWithBundle
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -51,12 +48,9 @@ class ItemsFragment : Fragment(), ItemsUser, ItemsView {
         itemsPresenter.setView(this)
 
         itemsAdapter = ItemsAdapter(this)
-
-        itemsPresenter.getAbout()
-
         viewBinding.recyclerView.adapter = itemsAdapter
 
-
+        itemsPresenter.getItems()
     }
 
     override fun onClick() {
@@ -76,18 +70,19 @@ class ItemsFragment : Fragment(), ItemsUser, ItemsView {
         Toast.makeText(context, getString(msg), Toast.LENGTH_SHORT).show()
     }
 
-    override fun itemClicked(navigateWithBundle: NavigateWithBundle) {
+
+    override fun itemClicked(navigateWithBundle: NavigateWithBundle,destination: Int) {
         val detailsFragment = DetailsFragment()
         val bundle = Bundle()
         bundle.putString(KEY_NAME, navigateWithBundle.name)
-        bundle.putString(KEY_ABOUT, navigateWithBundle.date)
+        bundle.putString(KEY_ABOUT, navigateWithBundle.about)
         bundle.putInt(KEY_IMAGE, navigateWithBundle.image)
         bundle.putInt(KEY_IMAGE2, navigateWithBundle.image2)
         detailsFragment.arguments = bundle
 
         Toast.makeText(context, "called", Toast.LENGTH_SHORT).show()
 
-        Navigation.fmReplace(parentFragmentManager, detailsFragment, true)
+        navigateWithBundle(destination, bundle)
     }
 
 }

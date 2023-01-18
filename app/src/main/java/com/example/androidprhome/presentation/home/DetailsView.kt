@@ -1,7 +1,7 @@
 package com.example.androidprhome.presentation.home
 
 interface DetailsView {
-    fun userLoggedOut()
+    fun userLoggedOut(destination: Int)
 
-    fun disolayItemData(name: String, date: String, imageView: Int)
+    fun displayItemData(name: String, date: String, imageView: Int)
 }

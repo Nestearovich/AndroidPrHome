@@ -8,16 +8,20 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import com.example.androidprhome.R
 import com.example.androidprhome.databinding.FragmentHomeBinding
+import com.example.androidprhome.domain.model.UserModel
 import com.example.androidprhome.presentation.auths.DisplayFragment
+import com.example.androidprhome.utils.NavHelper.replaceGraph
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(),HomeView {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: HomeViewModel by viewModels()
+    @Inject
+    lateinit var homePresenter: HomePresenter
 
 
     override fun onCreateView(
@@ -31,15 +35,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.showUserData()
+        homePresenter.setView(this)
+
+        homePresenter.showUserCreds()
 
         binding.btnDisplay.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.activity_container,DisplayFragment())
-                .commit()
+          homePresenter.goToDisplay()
         }
-        viewModel.userCreds.observe(viewLifecycleOwner){
-            binding.userCreds.text = "${it.userName}\n${it.userPassword}"
-        }
+
+    }
+
+    override fun showUserCreds(userModel: UserModel) {
+        binding.userCreds.text = "${userModel.userName}\n${userModel.userPassword}"
+    }
+
+    override fun goToDisplay(destination: Int) {
+        replaceGraph(destination)
     }
 }

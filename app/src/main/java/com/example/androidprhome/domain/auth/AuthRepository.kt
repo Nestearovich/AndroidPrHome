@@ -1,14 +1,14 @@
 package com.example.androidprhome.domain.auth
 
-import com.example.androidprhome.domain.model.UserModel
+import com.example.androidprhome.model.UserModel
 
 interface AuthRepository {
 
-    fun loginUser(userName: String, userPassword: String)
+   suspend fun loginUser(userName: String, userPassword: String)
 
-    fun showUserCreds(): UserModel
+   suspend fun showUserCreds(): UserModel
 
-    fun doesUserExist(): Boolean
+   suspend fun doesUserExist(): Boolean
 
-    fun userLogout()
+   suspend fun userLogout()
 }

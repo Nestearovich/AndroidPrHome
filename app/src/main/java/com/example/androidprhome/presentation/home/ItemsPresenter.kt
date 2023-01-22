@@ -9,43 +9,86 @@ import javax.inject.Inject
 class ItemsPresenter @Inject constructor(
     private val itemsInteractor: ItemsInteractor
 ) {
+    private lateinit var itemsView: ItemsView
 
-   private lateinit var itemsView: ItemsView
-
-
-    fun setView(itemsFragment: ItemsFragment){
+    fun setView(itemsFragment: ItemsFragment) {
         itemsView = itemsFragment
     }
-    fun getItems() {
 
+    fun getItems() {
         val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
             Log.w("exceptionHandler called", exception.toString())
         }
-
-        CoroutineScope(Dispatchers.Main).launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler){
+        CoroutineScope(Dispatchers.Main).launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
-
                 val job = launch {
-                    val listItems = itemsInteractor.getAbout()
+                    val listItems = itemsInteractor.getData()
                     itemsView.dataReceived(listItems)
                 }
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 Log.w("exception", "list items FAILED")
             }
-
         }
     }
-    fun imageViewClicked(){
+
+    fun imageViewClicked() {
         itemsView.imageViewClicked(R.string.click)
     }
-    fun elementSelected(name: String, about: String, imageView: Int, imageView2: Int){
-        itemsView.itemClicked(NavigateWithBundle(imageView, imageView2, name, about), R.id.action_itemsFragment_to_detailsFragment)
+
+    fun elementSelected(
+        id: Int,
+        name: String,
+        userName: String,
+        email: String,
+        street: String,
+        suite: String,
+        city: String,
+        zipcode: String,
+        lat: String,
+        lng: String,
+        phone: String,
+        website: String,
+        companyName: String,
+        catchPhrase: String,
+        bs: String,
+    ) {
+        itemsView.itemClicked(
+            NavigateWithBundle(
+                id,
+                name,
+                userName,
+                email,
+                street,
+                suite,
+                city,
+                zipcode,
+                lat,
+                lng,
+                phone,
+                website,
+                companyName,
+                catchPhrase,
+                bs,
+            ),
+            R.id.action_itemsFragment_to_detailsFragment
+        )
     }
 }
 
 data class NavigateWithBundle(
-    val image: Int,
-    val image2: Int,
-    val name: String,
-    val about: String
+   val id: Int,
+   val name: String,
+   val userName: String,
+   val email: String,
+   val street: String,
+   val suite: String,
+   val city: String,
+   val zipcode: String,
+   val lat: String,
+   val lng: String,
+   val phone: String,
+   val website: String,
+   val companyName: String,
+   val catchPhrase: String,
+   val bs: String,
 )

@@ -1,6 +1,6 @@
 package com.example.androidprhome.presentation.home
 
-import com.example.androidprhome.domain.model.UserModel
+import com.example.androidprhome.model.UserModel
 
 interface HomeView {
     fun showUserCreds(login: UserModel)

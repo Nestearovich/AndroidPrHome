@@ -15,17 +15,24 @@ class DetailsPresenter @Inject constructor(
         detailsView = detailsFragment
     }
 
-    fun getArguments(name: String, about: String, imageView: Int, imageView2: Int) {
+    fun getArguments(name: String?, username: String?, email: String?, phone: String?) {
         detailsView.displayItemData(
             when (name.isNullOrEmpty()) {
-                true -> "HAHA NO DATA"
+                true -> "NO  NAME"
                 false -> name
             },
-            when (about.isNullOrEmpty()) {
-                true -> "NO DATA"
-                false -> about
+            when (username.isNullOrEmpty()) {
+                true -> "NO USER NAME"
+                false -> username
             },
-            imageView
+            when (email.isNullOrEmpty()) {
+                true -> "NO EMAIL"
+                false -> email
+            },
+            when (phone.isNullOrEmpty()) {
+                true -> "NO PHONE"
+                false -> phone
+            }
         )
     }
 

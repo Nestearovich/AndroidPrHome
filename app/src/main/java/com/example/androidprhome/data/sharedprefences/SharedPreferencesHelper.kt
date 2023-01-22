@@ -1,7 +1,7 @@
 package com.example.androidprhome.data.sharedprefences
 
 import android.content.SharedPreferences
-import com.example.androidprhome.domain.model.UserModel
+import com.example.androidprhome.model.UserModel
 import javax.inject.Inject
 
 class SharedPreferencesHelper @Inject constructor(
@@ -16,7 +16,7 @@ class SharedPreferencesHelper @Inject constructor(
 
     }
 
-    fun getUserCreds(): UserModel{
+    fun getUserCreds(): UserModel {
         val name = sharedPreferences.getString(USER_NAME,"") ?: "No user"
         val password = sharedPreferences.getString(USER_PASSWORD, "") ?: "No user"
         return UserModel(name, password)

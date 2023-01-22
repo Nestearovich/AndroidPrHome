@@ -17,22 +17,44 @@ class ItemsViewHolder(
 
     fun bind(itemsModel: ItemsModel) {
 
-        viewBinding.textView.text = itemsModel.name
-        viewBinding.imageView2.setBackgroundResource(itemsModel.image)
-        viewBinding.textView2.text = itemsModel.about
-        viewBinding.imageStar.setBackgroundResource(itemsModel.image2)
+        viewBinding.tvId.text = "${itemsModel.id}"
+        viewBinding.tvName.text = itemsModel.name
+        viewBinding.tvUserName.text = itemsModel.userName
+        viewBinding.tvEmail.text = itemsModel.email
+        viewBinding.tvStreet.text = itemsModel.street
+        viewBinding.tvSuite.text = itemsModel.suite
+        viewBinding.tvCity.text = itemsModel.city
+        viewBinding.tvZipcode.text = itemsModel.zipcode
+        viewBinding.tvLat.text = itemsModel.lat
+        viewBinding.tvLng.text = itemsModel.lng
+        viewBinding.tvPhone.text = itemsModel.phone
+        viewBinding.tvWebsite.text = itemsModel.website
+        viewBinding.tvCompanyName.text = itemsModel.companyName
+        viewBinding.tvCatchPhrase.text = itemsModel.catchPhrase
+        viewBinding.tvBs.text = itemsModel.bs
 
 
-            viewBinding.imageView2.setOnClickListener {
-            itemsUser.onClick()
-        }
+//            viewBinding.imageView2.setOnClickListener {
+//            itemsUser.onClick()
+//        }
 
         itemView.setOnClickListener {
             itemsUser.onElementSelected(
+                itemsModel.id,
                 itemsModel.name,
-                itemsModel.about,
-                itemsModel.image,
-                itemsModel.image2
+                itemsModel.userName,
+                itemsModel.email,
+                itemsModel.street,
+                itemsModel.suite,
+                itemsModel.city,
+                itemsModel.zipcode,
+                itemsModel.lat,
+                itemsModel.lng,
+                itemsModel.phone,
+                itemsModel.website,
+                itemsModel.companyName,
+                itemsModel.catchPhrase,
+                itemsModel.bs,
             )
         }
     }

@@ -1,8 +1,8 @@
 package com.example.androidprhome.utils
 
 object BundleConstant {
-    const val KEY_NAME = "name"
-    const val KEY_ABOUT = "about"
-    const val KEY_IMAGE = "imageView"
-    const val KEY_IMAGE2 = "imageView2"
+    const val NAME = "name"
+    const val USER_NAME = "userName"
+    const val EMAIL = "email"
+    const val PHONE = "phone"
 }

@@ -1,3 +1,3 @@
-package com.example.androidprhome.domain.model
+package com.example.androidprhome.model
 
 data class UserModel (val userName: String, val userPassword: String)

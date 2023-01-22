@@ -5,11 +5,14 @@
     <string name="hello_user">Hello user</string>
     <string name="choice_favorite">Choice favorite</string>
     <string name="next">Next</string>
-    <string name="hi_go_to_next">Hi go to next</string>
+    <string name="hi_go_to_next">Hi go to next this display fragments</string>
     <string name="log_in">Log in</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="enter_your_login">Enter your login</string>
     <string name="go_to_display">Go to display</string>
     <string name="hello">Hello</string>
     <string name="click">click</string>
+    <string name="inc_login">Incorrect Login!</string>
+    <string name="inc_password">Incorrect Password!</string>
+    <string name="logout">Logout</string>
 </resources>

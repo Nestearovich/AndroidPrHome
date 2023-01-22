@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import com.example.androidprhome.R
 import com.example.androidprhome.databinding.FragmentHomeBinding
-import com.example.androidprhome.domain.model.UserModel
+import com.example.androidprhome.model.UserModel
 import com.example.androidprhome.presentation.auths.DisplayFragment
 import com.example.androidprhome.utils.NavHelper.replaceGraph
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,8 +22,6 @@ class HomeFragment : Fragment(),HomeView {
 
     @Inject
     lateinit var homePresenter: HomePresenter
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,7 +29,6 @@ class HomeFragment : Fragment(),HomeView {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,9 +39,7 @@ class HomeFragment : Fragment(),HomeView {
         binding.btnDisplay.setOnClickListener {
           homePresenter.goToDisplay()
         }
-
     }
-
     override fun showUserCreds(userModel: UserModel) {
         binding.userCreds.text = "${userModel.userName}\n${userModel.userPassword}"
     }

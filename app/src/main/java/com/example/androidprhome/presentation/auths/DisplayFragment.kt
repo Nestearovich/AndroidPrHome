@@ -8,14 +8,17 @@ import androidx.fragment.app.Fragment
 import com.example.androidprhome.databinding.FragmentDisplayBinding
 import com.example.androidprhome.presentation.home.ItemsFragment
 import com.example.androidprhome.utils.NavHelper.navigate
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class DisplayFragment : Fragment(), DisplayView {
 
     private var _viewBinding: FragmentDisplayBinding? = null
     private val viewBinding get() = _viewBinding!!
 
-    private lateinit var displayPresenter: DisplayPresenter
+    @Inject
+    lateinit var displayPresenter:DisplayPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

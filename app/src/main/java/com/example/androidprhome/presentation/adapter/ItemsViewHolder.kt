@@ -31,7 +31,7 @@ class ItemsViewHolder(
         viewBinding.tvWebsite.text = itemsModel.website
         viewBinding.tvCompanyName.text = itemsModel.companyName
         viewBinding.tvCatchPhrase.text = itemsModel.catchPhrase
-        viewBinding.tvBs.text = itemsModel.bs
+       // viewBinding.tvBs.text = itemsModel.bs
 
 
 //            viewBinding.imageView2.setOnClickListener {
@@ -54,7 +54,7 @@ class ItemsViewHolder(
                 itemsModel.website,
                 itemsModel.companyName,
                 itemsModel.catchPhrase,
-                itemsModel.bs,
+               itemsModel.bs,
             )
         }
     }

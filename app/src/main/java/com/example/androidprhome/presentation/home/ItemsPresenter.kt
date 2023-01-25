@@ -22,7 +22,7 @@ class ItemsPresenter @Inject constructor(
         CoroutineScope(Dispatchers.Main).launch(CoroutineName("with exception") + Dispatchers.Main + coroutineExceptionHandler) {
             try {
                 val job = launch {
-                    val listItems = itemsInteractor.getData()
+                    val listItems = itemsInteractor.showData()
                     itemsView.dataReceived(listItems)
                 }
             } catch (e: Exception) {

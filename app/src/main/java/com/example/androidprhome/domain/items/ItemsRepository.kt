@@ -4,6 +4,9 @@ import com.example.androidprhome.model.ItemsModel
 
 interface ItemsRepository {
 
+    suspend  fun getData()
 
-    suspend fun getData(): List<ItemsModel>
+
+    suspend fun showData(): List<ItemsModel>
+
 }

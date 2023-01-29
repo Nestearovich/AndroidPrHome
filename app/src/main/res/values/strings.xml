@@ -15,4 +15,7 @@
     <string name="inc_login">Incorrect Login!</string>
     <string name="inc_password">Incorrect Password!</string>
     <string name="logout">Logout</string>
+    <string name="homefragments">HomeFragments</string>
+    <string name="itemsfragment">ItemsFragment</string>
+    <string name="favorites">Favorites</string>
 </resources>

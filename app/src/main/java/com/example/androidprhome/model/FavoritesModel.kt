@@ -1,6 +1,6 @@
 package com.example.androidprhome.model
 
-data class ItemsModel(
+data class FavoritesModel(
     val id: Int,
     val name: String,
     val userName: String,
@@ -13,9 +13,5 @@ data class ItemsModel(
     val lng: String,
     val phone: String,
     val website: String,
-    val companyName: String,
-    val catchPhrase: String,
-    val bs: String
-) {
-
-}
+    val companyName: String
+)

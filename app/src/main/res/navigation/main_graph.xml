@@ -13,6 +13,7 @@
         <action
             android:id="@+id/action_displayFragment_to_itemsFragment"
             app:destination="@id/itemsFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/itemsFragment"
@@ -22,10 +23,18 @@
         <action
             android:id="@+id/action_itemsFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+
+        <action
+            android:id="@+id/action_itemsFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.androidprhome.presentation.home.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.androidprhome.presentation.home.FavoritesFragment"
+        android:label="FavoritesFragment" />
 </navigation>

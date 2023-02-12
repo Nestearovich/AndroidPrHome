@@ -1,20 +1,17 @@
 package com.example.androidprhome.presentation.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
-import com.example.androidprhome.R
+import androidx.fragment.app.Fragment
+import com.example.androidprhome.App
 import com.example.androidprhome.databinding.FragmentHomeBinding
 import com.example.androidprhome.model.UserModel
-import com.example.androidprhome.presentation.auths.DisplayFragment
 import com.example.androidprhome.utils.NavHelper.replaceGraph
-import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-@AndroidEntryPoint
+
 class HomeFragment : Fragment(),HomeView {
 
     private var _binding: FragmentHomeBinding? = null
@@ -31,6 +28,8 @@ class HomeFragment : Fragment(),HomeView {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (requireActivity().applicationContext as App).provideAppComponent().inject(this)
 
         homePresenter.setView(this)
 

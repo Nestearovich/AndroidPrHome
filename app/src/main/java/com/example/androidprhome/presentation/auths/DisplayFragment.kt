@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.androidprhome.App
 import com.example.androidprhome.databinding.FragmentDisplayBinding
-import com.example.androidprhome.presentation.home.ItemsFragment
 import com.example.androidprhome.utils.NavHelper.navigate
-import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-@AndroidEntryPoint
+
 class DisplayFragment : Fragment(), DisplayView {
 
     private var _viewBinding: FragmentDisplayBinding? = null
@@ -30,6 +29,7 @@ class DisplayFragment : Fragment(), DisplayView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity().applicationContext as App).provideAppComponent().inject(this)
 
         displayPresenter.setView(this)
 

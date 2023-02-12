@@ -9,11 +9,9 @@ import com.example.androidprhome.presentation.home.ItemsPresenter
 import com.example.androidprhome.presentation.view.MainPresenter
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(SingletonComponent::class)
+
 class PresentationModule {
     @Provides
     fun provideMainPresenter(authInteractor: AuthInteractor): MainPresenter {

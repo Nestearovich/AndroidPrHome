@@ -1,32 +1,41 @@
 package com.example.androidprhome.presentation.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.example.androidprhome.App
 import com.example.androidprhome.R
 import com.example.androidprhome.databinding.ActivityMainBinding
 import com.example.androidprhome.presentation.auths.LoginFragment
 import com.example.androidprhome.presentation.home.HomeFragment
-import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), MainView {
 
-    private var _binding: ActivityMainBinding? = null
+    private var binding: ActivityMainBinding? = null
 
     @Inject
     lateinit var mainPresenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
-        setContentView(_binding!!.root)
+        binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding!!.root)
+
+        (applicationContext as App).provideAppComponent().inject(this)
+
+
 
         mainPresenter.setView(this)
 
         mainPresenter.checkUserExists()
+
+
 
     }
 

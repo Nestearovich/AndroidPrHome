@@ -1,25 +1,24 @@
 package com.example.androidprhome.presentation.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.example.androidprhome.App
 import com.example.androidprhome.databinding.FragmentItemsBinding
 import com.example.androidprhome.model.ItemsModel
-import com.example.androidprhome.presentation.adapter.User.ItemsUser
 import com.example.androidprhome.presentation.adapter.ItemsAdapter
+import com.example.androidprhome.presentation.adapter.User.ItemsUser
 import com.example.androidprhome.utils.BundleConstant.EMAIL
 import com.example.androidprhome.utils.BundleConstant.NAME
 import com.example.androidprhome.utils.BundleConstant.PHONE
 import com.example.androidprhome.utils.BundleConstant.USER_NAME
 import com.example.androidprhome.utils.NavHelper.navigateWithBundle
-import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
-@AndroidEntryPoint
 class ItemsFragment : Fragment(), ItemsUser, ItemsView {
     private var _viewBinding: FragmentItemsBinding? = null
     private val viewBinding get() = _viewBinding!!
@@ -41,6 +40,8 @@ class ItemsFragment : Fragment(), ItemsUser, ItemsView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (requireActivity().applicationContext as App).provideAppComponent().inject(this)
 
         itemsPresenter.setView(this)
 

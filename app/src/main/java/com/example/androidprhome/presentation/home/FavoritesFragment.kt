@@ -1,20 +1,18 @@
 package com.example.androidprhome.presentation.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androidprhome.R
+import com.example.androidprhome.App
 import com.example.androidprhome.databinding.FragmentFavoritesBinding
-import com.example.androidprhome.databinding.FragmentHomeBinding
 import com.example.androidprhome.model.FavoritesModel
 import com.example.androidprhome.presentation.home.adapter.FavoritesAdapter
-import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-@AndroidEntryPoint
+
 class FavoritesFragment : Fragment(),FavoritesView {
 
     private var _viewBinding: FragmentFavoritesBinding? = null
@@ -35,6 +33,7 @@ class FavoritesFragment : Fragment(),FavoritesView {
 
     override  fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity().applicationContext as App).provideAppComponent().inject(this)
 
         favAdapter = FavoritesAdapter()
         viewBinding.recyclerView.layoutManager = LinearLayoutManager(requireContext())

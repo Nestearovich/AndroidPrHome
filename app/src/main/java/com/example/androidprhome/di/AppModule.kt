@@ -1,19 +1,18 @@
 package com.example.androidprhome.di
 
+import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.components.SingletonComponent
 
 
 @Module
-@InstallIn(SingletonComponent::class)
-class AppModule {
-    @Provides
-    fun provideContext(@ApplicationContext context: Context) : Context {
-        return context
-    }
 
+
+class AppModule(private val application: Application) {
+    fun provideApplication(): Application = this.application
+    @Provides
+    fun provideContext(): Context{
+        return this.application
+    }
 }
